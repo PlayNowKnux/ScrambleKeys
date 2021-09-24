@@ -1,0 +1,9 @@
+/*13 keys per row (3 rows)*/
+
+button.scramblekey {
+    min-width: 38;
+    min-height: 22;
+    margin-bottom: 4px;
+    margin-left: 2px;
+    margin-right: 2px;
+}

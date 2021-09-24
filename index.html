@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="scramblekeys.css">
+    </head>
+    <body>
+        <h2>What is your name?</h2>
+        <div id="testKeyboard"></div>
+        <br>
+        <input type="text" id="nameText" disabled> <button onclick="clear_name()">Clear</button>
+        <br>
+        <p id="successText"></p>
+    </body>
+    <script src="scramblekeys.js"></script>
+    <script>
+        var inputTxt = document.getElementById("nameText");
+        function clear_name() {
+            inputTxt.value = "";
+        }
+        
+        all_instances.push(new ScrambleKeyboard(document.getElementById("testKeyboard"), function(key) {
+            
+            if (key == "bksp") {
+                if (inputTxt.value.length != 0) {
+                    inputTxt.value = inputTxt.value.slice(0, inputTxt.value.length - 1);
+                }
+            } else if (key == "spc") {
+                inputTxt.value += " ";
+            } else if (key == "done") {
+                document.getElementById("successText").innerHTML = "Hello, <b>" + inputTxt.value + "</b>"
+            } else if (key == "caps") {
+                inputTxt.value += "";
+            } else {
+                inputTxt.value += key;
+            }
+        }));
+    </script>
+</html>
